@@ -56,8 +56,14 @@ class ModelManager:
                     logger.info(f"Successfully loaded scaler for '{model_name}'")
                     break
 
+            # If the model was dumped as a dictionary (e.g. Afra's model), extract the actual model
+            actual_model = model_obj
+            if isinstance(model_obj, dict) and "model" in model_obj:
+                actual_model = model_obj["model"]
+                logger.info(f"Extracted actual model from dictionary for '{model_name}'")
+
             self.models[model_name] = {
-                "model": model_obj,
+                "model": actual_model,
                 "scaler": scaler_obj,
                 "format": ext,
                 "status": "loaded"

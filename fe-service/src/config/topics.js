@@ -3,6 +3,10 @@ export const topics = [
     id: "diabetes",
     label: "Diabetes Prediction",
     description: "Memprediksi kemungkinan penyakit diabetes berdasarkan pengukuran diagnostik medis.",
+    resultMapping: {
+      "0": "Normal (Tidak Terindikasi Diabetes)",
+      "1": "Positif (Terindikasi Diabetes)"
+    },
     fields: [
       { name: "pregnancies", label: "Pregnancies", description: "Berapa kali mengalami kehamilan", type: "number", min: 0, max: 20 },
       { name: "glucose", label: "Glucose", description: "Konsentrasi glukosa plasma (mg/dL)", type: "number", min: 0, max: 300 },
@@ -18,6 +22,10 @@ export const topics = [
     id: "heart_disease",
     label: "Heart Disease Prediction",
     description: "Mendeteksi kemungkinan penyakit jantung dari data klinis dan tes laboratorium pasien.",
+    resultMapping: {
+      "0": "Normal (Tidak Terindikasi Penyakit Jantung)",
+      "1": "Positif (Terindikasi Penyakit Jantung)"
+    },
     fields: [
       { name: "age", label: "Age", description: "Usia pasien (Tahun)", type: "number", min: 1, max: 120 },
       { name: "sex", label: "Sex", description: "Jenis kelamin pasien", type: "select", options: [{value: "1", label: "Male"}, {value: "0", label: "Female"}] },
@@ -49,6 +57,12 @@ export const topics = [
     id: "breast_cancer",
     label: "Breast Cancer Detection",
     description: "Mendeteksi apakah kanker payudara bersifat ganas (malignant) atau jinak (benign) berdasarkan ciri inti sel.",
+    resultMapping: {
+      "0": "Jinak (Benign)",
+      "1": "Ganas (Malignant)",
+      "B": "Jinak (Benign)",
+      "M": "Ganas (Malignant)"
+    },
     fields: [
       { name: "radius_mean", label: "Radius Mean", description: "Rata-rata jarak dari pusat ke perimeter inti sel", type: "number", min: 0, max: 30, step: 0.01 },
       { name: "texture_mean", label: "Texture Mean", description: "Variasi standar deviasi dari nilai skala abu-abu", type: "number", min: 0, max: 40, step: 0.01 },
@@ -59,13 +73,44 @@ export const topics = [
       { name: "concavity_mean", label: "Concavity Mean", description: "Rata-rata tingkat keparahan lekukan kontur", type: "number", min: 0, max: 0.5, step: 0.0001 },
       { name: "concave_points_mean", label: "Concave Points Mean", description: "Rata-rata jumlah titik lekukan pada kontur", type: "number", min: 0, max: 0.2, step: 0.0001 },
       { name: "symmetry_mean", label: "Symmetry Mean", description: "Rata-rata simetri dari inti sel", type: "number", min: 0, max: 0.4, step: 0.0001 },
-      { name: "fractal_dimension_mean", label: "Fractal Dimension Mean", description: "Rata-rata pendekatan fraktal garis batas", type: "number", min: 0, max: 0.1, step: 0.0001 }
+      { name: "fractal_dimension_mean", label: "Fractal Dimension Mean", description: "Rata-rata pendekatan fraktal garis batas", type: "number", min: 0, max: 0.1, step: 0.0001 },
+      
+      { name: "radius_se", label: "Radius SE", description: "Standar error radius", type: "number", min: 0, max: 10, step: 0.01 },
+      { name: "texture_se", label: "Texture SE", description: "Standar error texture", type: "number", min: 0, max: 10, step: 0.01 },
+      { name: "perimeter_se", label: "Perimeter SE", description: "Standar error perimeter", type: "number", min: 0, max: 100, step: 0.01 },
+      { name: "area_se", label: "Area SE", description: "Standar error area", type: "number", min: 0, max: 1000, step: 0.1 },
+      { name: "smoothness_se", label: "Smoothness SE", description: "Standar error smoothness", type: "number", min: 0, max: 0.1, step: 0.0001 },
+      { name: "compactness_se", label: "Compactness SE", description: "Standar error compactness", type: "number", min: 0, max: 0.5, step: 0.0001 },
+      { name: "concavity_se", label: "Concavity SE", description: "Standar error concavity", type: "number", min: 0, max: 0.5, step: 0.0001 },
+      { name: "concave_points_se", label: "Concave Points SE", description: "Standar error concave points", type: "number", min: 0, max: 0.2, step: 0.0001 },
+      { name: "symmetry_se", label: "Symmetry SE", description: "Standar error symmetry", type: "number", min: 0, max: 0.2, step: 0.0001 },
+      { name: "fractal_dimension_se", label: "Fractal Dimension SE", description: "Standar error fractal dimension", type: "number", min: 0, max: 0.1, step: 0.0001 },
+      
+      { name: "radius_worst", label: "Radius Worst", description: "Nilai terburuk radius", type: "number", min: 0, max: 50, step: 0.01 },
+      { name: "texture_worst", label: "Texture Worst", description: "Nilai terburuk texture", type: "number", min: 0, max: 50, step: 0.01 },
+      { name: "perimeter_worst", label: "Perimeter Worst", description: "Nilai terburuk perimeter", type: "number", min: 0, max: 300, step: 0.01 },
+      { name: "area_worst", label: "Area Worst", description: "Nilai terburuk area", type: "number", min: 0, max: 5000, step: 0.1 },
+      { name: "smoothness_worst", label: "Smoothness Worst", description: "Nilai terburuk smoothness", type: "number", min: 0, max: 0.5, step: 0.0001 },
+      { name: "compactness_worst", label: "Compactness Worst", description: "Nilai terburuk compactness", type: "number", min: 0, max: 1.5, step: 0.0001 },
+      { name: "concavity_worst", label: "Concavity Worst", description: "Nilai terburuk concavity", type: "number", min: 0, max: 1.5, step: 0.0001 },
+      { name: "concave_points_worst", label: "Concave Points Worst", description: "Nilai terburuk concave points", type: "number", min: 0, max: 0.5, step: 0.0001 },
+      { name: "symmetry_worst", label: "Symmetry Worst", description: "Nilai terburuk symmetry", type: "number", min: 0, max: 1.0, step: 0.0001 },
+      { name: "fractal_dimension_worst", label: "Fractal Dimension Worst", description: "Nilai terburuk fractal dimension", type: "number", min: 0, max: 0.5, step: 0.0001 }
     ]
   },
   {
     id: "obesity",
     label: "Obesity Level Prediction",
     description: "Memperkirakan tingkat obesitas berdasarkan kebiasaan makan dan kondisi fisik.",
+    resultMapping: {
+      "0": "Insufficient Weight (Kekurangan Berat Badan)",
+      "1": "Normal Weight (Berat Badan Normal)",
+      "2": "Obesity Type I (Obesitas Tipe I)",
+      "3": "Obesity Type II (Obesitas Tipe II)",
+      "4": "Obesity Type III (Obesitas Tipe III)",
+      "5": "Overweight Level I (Kelebihan Berat Badan I)",
+      "6": "Overweight Level II (Kelebihan Berat Badan II)"
+    },
     fields: [
       { name: "gender", label: "Gender", description: "Jenis kelamin", type: "select", options: [{value: "1", label: "Male"}, {value: "0", label: "Female"}] },
       { name: "age", label: "Age", description: "Usia (Tahun)", type: "number", min: 1, max: 100 },
@@ -99,6 +144,10 @@ export const topics = [
     id: "banknote",
     label: "Banknote Authentication",
     description: "Mendeteksi keaslian uang kertas dari fitur transformasi gambar wavelet.",
+    resultMapping: {
+      "0": "Uang Asli (Authentic)",
+      "1": "Uang Palsu (Forged)"
+    },
     fields: [
       { name: "variance", label: "Variance of Wavelet", description: "Variansi dari gambar yang ditransformasi", type: "number", min: -10, max: 10, step: 0.0001 },
       { name: "skewness", label: "Skewness of Wavelet", description: "Skewness dari gambar yang ditransformasi", type: "number", min: -15, max: 15, step: 0.0001 },

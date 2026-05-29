@@ -37,6 +37,27 @@
 - Concave Points Mean : 0.05
 - Symmetry Mean : 0.18
 - Fractal Dimension Mean : 0.06
+- Radius SE : 0.5
+- Texture SE : 1.0
+- Perimeter SE : 3.0
+- Area SE : 40.0
+- Smoothness SE : 0.005
+- Compactness SE : 0.02
+- Concavity SE : 0.03
+- Concave Points SE : 0.01
+- Symmetry SE : 0.02
+- Fractal Dimension SE : 0.003
+- Radius Worst : 17.0
+- Texture Worst : 25.0
+- Perimeter Worst : 110.0
+- Area Worst : 900.0
+- Smoothness Worst : 0.12
+- Compactness Worst : 0.25
+- Concavity Worst : 0.3
+- Concave Points Worst : 0.1
+- Symmetry Worst : 0.25
+- Fractal Dimension Worst : 0.08
+
 
 ## Obesity Level Prediction
 
@@ -62,4 +83,4 @@
 - Variance of Wavelet : 3.6216
 - Skewness of Wavelet : 8.6661
 - Curtosis of Wavelet : -2.8073
-- Entropy of Image : -0.44699
+- Entropy of Image : -0.447

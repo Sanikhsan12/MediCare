@@ -41,7 +41,7 @@ def predict(model_name: str, request: PredictRequest):
     format = model_info["format"]
     
     try:
-        X = preprocess_features(model_name, request.features, scaler)
+        X = preprocess_features(model_name, request.features, scaler, model)
         
         # Simple dummy prediction logic if no model file exists yet
         if model is None:
