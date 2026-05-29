@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  fe-service:
+    build:
+      context: ./fe-service
+    ports:
+      - "3000:80"
+    depends_on:
+      - be-service
+    networks:
+      - medicare-network
+
+  be-service:
+    build:
+      context: ./be-service
+    ports:
+      - "8080:8080"
+    environment:
+      - ML_SERVICE_URL=http://ml-service:8000
+      - PORT=8080
+      - LOG_LEVEL=info
+      - ALLOWED_ORIGIN=*
+    depends_on:
+      - ml-service
+    networks:
+      - medicare-network
+
+  ml-service:
+    build:
+      context: ./ml-service
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./ml-service/models:/app/models
+    environment:
+      - MODEL_DIR=/app/models
+      - LOG_LEVEL=info
+    networks:
+      - medicare-network
+
+networks:
+  medicare-network:
+    driver: bridge

@@ -1,0 +1,35 @@
+# General
+.env
+.DS_Store
+
+# Frontend
+fe-service/node_modules/
+fe-service/dist/
+fe-service/.npm/
+
+# Backend
+be-service/server
+
+# ML Service
+ml-service/__pycache__/
+ml-service/.pytest_cache/
+
+# Ignore model dump files so large files aren't committed to git accidentally
+ml-service/models/**/*.pkl
+ml-service/models/**/*.joblib
+ml-service/models/**/*.h5
+ml-service/models/**/*.pt
+ml-service/models/**/*.pth
+ml-service/models/**/*.onnx
+ml-service/models/**/*.keras
+
+# Keep the directory structure
+!ml-service/models/**/.gitkeep
+
+# non public folder
+revisian/
+nonpublic/
+hasil dump/
+dataset/
+code_train/
+perencanaan/
