@@ -28,7 +28,7 @@ ml-service/models/**/*.keras
 
 # non public folder
 revisian/
-non public/
+non_public/
 hasil dump/
 dataset/
 code_train/
